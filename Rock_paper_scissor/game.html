@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        img{
+            width: 150px;
+        } 
+        button{
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+        #computer{
+            margin: 0;
+        }
+        #result{
+            font-size:88px;
+            margin: 0px;
+         }
+    </style>
+    
+</head>
+<body>
+<center>
+<h1>Rock , Paper or scissor???????</h1>
+<button onclick="rock()"><img src="rock.png"></button>
+<button onclick=" paper()"><img src="papper.png" ></button>
+<button onclick="scissor()"><img src="scissor.png"></button>
+<h3>Computer choice is </h3>
+<img src="" id="computer">
+<h1 id="result"></h1>
+
+</center>
+
+<script>
+    var userChoice;
+    var result;
+    var computer = document.getElementById("computer");
+    var result = document.getElementById("result");
+
+function rock(){
+    userChoice = "1";
+    computerChoice();
+}
+function paper(){
+    userChoice = "2";
+    computerChoice();
+}
+function scissor(){
+    userChoice = "3";
+    computerChoice();
+}
+function computerChoice(){
+    var computerChoice = 1+ Math.floor(Math.random() * 3) ;
+    // 1 is rock ,  2 is paper ,  3 is scissor
+    if(computerChoice==1){
+        computer.src= "rock.png";
+        compare(computerChoice,userChoice);
+    }else if(computerChoice==2){
+        computer.src= "papper.png";
+        compare(computerChoice,userChoice);
+    }else if(computerChoice==3){
+        computer.src= "scissor.png";
+        compare(computerChoice,userChoice);
+    }
+}
+function compare(computerChoice,userChoice){
+    // 1 is rock ,  2 is paper ,  3 is scissor
+    if((userChoice==1 && computerChoice==1) || (userChoice==2 && computerChoice==2) || (userChoice==3 && computerChoice==3) ){
+        result.innerHTML = "Equality, You chose the same."; 
+        result.style.color="grey";
+    }else if( userChoice==1 && computerChoice==2){
+        result.innerHTML = "You are losser";
+        result.style.color="red";
+    }else if( userChoice==1 && computerChoice==3){
+        result.innerHTML = "You are winner";
+        result.style.color="green";
+    }else if( userChoice==2 && computerChoice==1){
+        result.innerHTML = "You are winner";
+        result.style.color="green";
+    }else if( userChoice==2 && computerChoice==3){
+        result.innerHTML = "You are losser";
+        result.style.color="red";
+    }else if( userChoice==3 && computerChoice==1){
+        result.innerHTML = "You are losser";
+        result.style.color="red";
+    }else if( userChoice==3 && computerChoice==2){
+        result.innerHTML ="You are winner";
+        result.style.color="green";
+    }
+}
+</script>
+
+</body>
+</html>
